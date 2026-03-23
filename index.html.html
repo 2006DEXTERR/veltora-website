@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Veltora Group — India's Finest Developments</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#1A1A18;--charcoal:#2E2E2A;--text:#3C3C38;--muted:#888882;--light:#F7F5F0;--lighter:#FAFAF7;--white:#fff;--border:#E2DDD5;--gold:#A8854A;--gold2:#C4A06A;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+a{text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px}
+.nav-logo{font-family:var(--serif);font-size:22px;font-weight:400;letter-spacing:.05em;cursor:pointer}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links span{font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:color .3s}
+.nav-links span:hover{color:var(--gold2)!important}
+.nav-action{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 10px;transition:color .3s;background:none;border:none}
+.nav-action:hover{color:var(--gold2)!important}
+.nav-action svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-video-wrap{position:absolute;inset:0;z-index:0}
+.hero-video-wrap iframe{position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:none;pointer-events:none}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,.25) 50%,rgba(0,0,0,.1) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 80px 90px;animation:fadeUp 1.2s ease both .3s}
+.hero-label{font-size:11px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.hero-label::before{content:'';width:36px;height:1px;background:var(--gold2);display:block}
+.hero-title{font-family:var(--serif);font-size:clamp(46px,5.5vw,82px);font-weight:400;line-height:1.08;color:#fff;margin-bottom:28px}
+.hero-desc{font-size:15px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.75);max-width:440px;margin-bottom:44px}
+.hero-btns{display:flex;gap:16px}
+.btn-white{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--black);background:#fff;border:none;padding:15px 36px;cursor:pointer;transition:transform .2s}
+.btn-white:hover{transform:translateY(-1px)}
+.btn-outline-white{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.5);padding:15px 36px;cursor:pointer;transition:border-color .3s}
+.btn-outline-white:hover{border-color:#fff}
+.hero-scroll{position:absolute;bottom:40px;right:80px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-scroll span{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.5);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:50px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:1px;height:100%;background:var(--gold2);animation:scrollLine 2s ease infinite}
+
+/* QUICK BAR */
+.quick-bar{background:var(--black);padding:20px 80px;display:flex;align-items:center;justify-content:space-between}
+.quick-bar-text{font-family:var(--serif);font-size:18px;font-weight:400;color:#fff}
+.quick-bar-text em{font-style:italic;color:var(--gold2)}
+.quick-form{display:flex;gap:0}
+.quick-input,.quick-select{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:12px 20px;color:#fff;font-family:var(--sans);font-size:13px;font-weight:300;outline:none}
+.quick-input{border-right:none;width:200px}
+.quick-input::placeholder{color:rgba(255,255,255,.4)}
+.quick-select{border-right:none;width:160px;appearance:none;cursor:pointer;color:rgba(255,255,255,.7)}
+.quick-select option{background:var(--black)}
+.quick-submit{background:var(--gold);border:1px solid var(--gold);padding:12px 24px;color:#fff;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .25s}
+.quick-submit:hover{background:var(--gold2)}
+
+/* SECTIONS */
+.section{padding:100px 80px}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);display:block}
+.sec-title{font-family:var(--serif);font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:var(--black);margin-bottom:18px}
+.sec-body{font-size:15px;font-weight:300;line-height:1.9;color:var(--muted);max-width:500px}
+
+/* PROMISE */
+.promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.promise-img{position:relative;height:560px;overflow:hidden}
+.arch-art{position:absolute;bottom:0;left:0;right:0;height:70%;display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.arch-bar{background:linear-gradient(to top,rgba(168,133,74,.25) 0%,rgba(168,133,74,.05) 100%);flex-shrink:0}
+.promise-caption{position:absolute;bottom:0;left:0;right:0;background:var(--black);padding:20px 28px;display:flex;justify-content:space-between;align-items:center}
+
+/* STATS */
+.stats-bar{background:var(--black);padding:60px 80px;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:0 40px}
+.stat-item+.stat-item{border-left:1px solid rgba(255,255,255,.08)}
+.stat-num{font-family:var(--serif);font-size:48px;font-weight:400;color:#fff;line-height:1}
+.stat-lbl{font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px}
+
+/* PURPOSE */
+.purpose-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.purpose-card{position:relative;overflow:hidden;min-height:440px;display:flex;flex-direction:column;justify-content:flex-end;padding:48px;cursor:pointer}
+.purpose-card .purpose-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.7s ease;z-index:0}
+.purpose-card:hover .purpose-bg-img{transform:scale(1.06)}
+.purpose-card .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 60%);z-index:1}
+.purpose-content{position:relative;z-index:2}
+.purpose-sub{font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+.purpose-title{font-family:var(--serif);font-size:30px;font-weight:400;color:#fff;line-height:1.3;margin-bottom:14px}
+.purpose-desc{font-size:14px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.7);max-width:380px}
+.purpose-link{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
+
+/* GALLERY */
+.tab-bar{display:flex;border-bottom:1px solid var(--border);margin-bottom:48px}
+.tab{font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;background:none;border:none;border-bottom:2px solid transparent;padding:14px 24px;cursor:pointer;margin-bottom:-1px;color:var(--muted);transition:color .2s}
+.tab.active{color:var(--black);border-bottom-color:var(--black)}
+.proj-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:300px 300px;gap:4px}
+.proj-card{position:relative;overflow:hidden;cursor:pointer}
+.proj-card:first-child{grid-row:1/3}
+.proj-bg{position:absolute;inset:0;transition:transform .7s ease}
+.proj-card:hover .proj-bg{transform:scale(1.06)}
+.proj-sil{position:absolute;bottom:0;left:0;right:0;height:70%;background:linear-gradient(to top,rgba(0,0,0,.5),transparent);opacity:.25;transition:opacity .4s}
+.proj-card:hover .proj-sil{opacity:.4}
+.proj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.15) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px}
+.proj-city{font-size:10px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:6px}
+.proj-name{font-family:var(--serif);font-weight:400;color:#fff;line-height:1.25;margin-bottom:8px}
+.proj-tag{font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.proj-arrow{position:absolute;top:24px;right:24px;width:38px;height:38px;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.proj-card:hover .proj-arrow{opacity:1;transform:translateY(0)}
+
+/* EXP */
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}
+.exp-card{border-top:1px solid var(--border);padding-top:28px}
+.exp-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.exp-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.3}
+.exp-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--black);margin-bottom:12px;line-height:1.3}
+.exp-desc{font-size:14px;font-weight:300;line-height:1.85;color:var(--muted)}
+.exp-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--black);border-bottom:1px solid var(--border);padding-bottom:4px;transition:border-color .2s}
+.exp-link:hover{border-color:var(--black)}
+
+/* ENQUIRY */
+.enq-section{background:var(--black);padding:80px}
+.enq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center}
+.enq-form{display:grid;grid-template-columns:1fr 1fr}
+.enq-field{position:relative;border:1px solid rgba(255,255,255,.1);margin:-1px 0 0 -1px;padding:20px 24px 12px}
+.enq-label{position:absolute;top:12px;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.enq-input,.enq-sel{display:block;width:100%;background:none;border:none;outline:none;padding-top:14px;font-family:var(--sans);font-size:14px;font-weight:300;color:#fff}
+.enq-input::placeholder{color:rgba(255,255,255,.3)}
+.enq-sel{appearance:none;cursor:pointer;color:rgba(255,255,255,.65)}
+.enq-sel option{background:var(--black)}
+.enq-submit-wrap{grid-column:1/-1;border:1px solid rgba(255,255,255,.1);margin:-1px 0 0 -1px}
+.enq-btn{width:100%;padding:20px;background:var(--gold);border:none;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#fff;cursor:pointer;transition:background .25s}
+.enq-btn:hover{background:var(--gold2)}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:72px 80px 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px}
+.footer-logo{font-family:var(--serif);font-size:24px;font-weight:400;color:#fff;margin-bottom:16px}
+.footer-tagline{font-size:13px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.4);max-width:260px}
+.footer-col h5{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-col a:hover{color:var(--gold2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;font-weight:300;color:rgba(255,255,255,.3);letter-spacing:.05em}
+.footer-socials{display:flex;gap:12px}
+.soc{width:34px;height:34px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:12px;transition:border-color .25s,color .25s}
+.soc:hover{border-color:var(--gold2);color:var(--gold2)}
+
+/* STICKY SIDE */
+.sticky-side{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column}
+.sticky-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;width:52px;padding:14px 8px;gap:6px;background:var(--black);color:rgba(255,255,255,.7);font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;border-right:none;border-left:none;border-top:none;transition:background .2s,color .2s}
+.sticky-btn:hover{background:var(--gold);color:#fff}
+.sticky-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;overflow:hidden;background:#fff}
+.marquee-track{display:flex;animation:marquee 22s linear infinite;white-space:nowrap}
+.marquee-item{font-family:var(--serif);font-size:16px;font-style:italic;font-weight:400;color:var(--muted);padding:0 40px;display:flex;align-items:center;gap:40px}
+.marquee-item::after{content:'·';font-size:20px;color:var(--gold)}
+
+/* PROJECTS PAGE */
+.page{display:none}
+.page.active{display:block}
+.proj-page-hero{background:var(--black);padding:160px 80px 80px;position:relative;overflow:hidden}
+.proj-page-hero::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(184,154,90,.04) 0px,rgba(184,154,90,.04) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(0deg,rgba(184,154,90,.04) 0px,rgba(184,154,90,.04) 1px,transparent 1px,transparent 80px)}
+.filter-bar{background:var(--lighter);border-bottom:1px solid var(--border);padding:0 80px;display:flex;justify-content:space-between;align-items:center}
+.filter-sel{font-size:12px;font-weight:400;letter-spacing:.1em;color:var(--text);background:#fff;border:1px solid var(--border);padding:10px 20px;cursor:pointer;outline:none;appearance:none;margin-left:12px}
+.proj-list{padding:32px 80px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.proj-list-card{cursor:pointer;border:1px solid var(--border);overflow:hidden;background:#fff;transition:box-shadow .3s}
+.proj-list-card:hover{box-shadow:0 8px 40px rgba(0,0,0,.12)}
+.proj-list-img{height:240px;position:relative;overflow:hidden}
+.proj-list-img-bg{position:absolute;inset:0;transition:transform .6s ease}
+.proj-list-card:hover .proj-list-img-bg{transform:scale(1.05)}
+.proj-status{position:absolute;top:16px;left:16px;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;background:rgba(0,0,0,.5);padding:5px 12px}
+.proj-list-body{padding:20px 24px 24px}
+
+/* DETAIL PAGE */
+.detail-hero{position:relative;height:70vh;min-height:500px;display:flex;align-items:flex-end}
+.detail-content{display:grid;grid-template-columns:1fr 380px}
+.detail-left{padding:64px 80px}
+.detail-right{padding:64px 40px;background:var(--lighter);border-left:1px solid var(--border)}
+.sticky-form{position:sticky;top:90px}
+.key-facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);margin-bottom:64px}
+.key-fact{padding:28px 32px}
+.key-fact+.key-fact{border-left:1px solid var(--border)}
+.amenities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.amenity{display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--border);background:var(--lighter)}
+.btn-dark{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--black);border:none;padding:15px 36px;cursor:pointer;transition:background .25s}
+.btn-dark:hover{background:var(--charcoal)}
+.btn-border{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--black);background:transparent;border:1px solid var(--black);padding:14px 34px;cursor:pointer;transition:background .25s,color .25s}
+.btn-border:hover{background:var(--black);color:#fff}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12px}
+.breadcrumb span{cursor:pointer;color:rgba(255,255,255,.5);transition:color .2s}
+.breadcrumb span:hover{color:var(--gold2)}
+.breadcrumb .sep{color:rgba(255,255,255,.3);cursor:default}
+.similar-section{padding:80px;background:var(--lighter);border-top:1px solid var(--border)}
+.similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+.similar-card{cursor:pointer;border:1px solid var(--border);overflow:hidden;background:#fff}
+.similar-img{height:180px;position:relative}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes scrollLine{to{top:200%}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<!-- STICKY SIDE -->
+<div class="sticky-side">
+  <button class="sticky-btn" onclick="showEnquiry()">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    Enquire
+  </button>
+  <button class="sticky-btn">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.19 6.19l1.9-1.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+    Call
+  </button>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      Veltora <span style="color:var(--gold2)">Group</span>
+    </div>
+    <ul class="nav-links">
+      <li><span id="nl-story" onclick="showPage('story')" style="color:rgba(255,255,255,.85)">Our Story</span></li>
+      <li><span id="nl-impact" onclick="showPage('impact')" style="color:rgba(255,255,255,.85)">Our Impact</span></li>
+      <li><span id="nl-projects" onclick="showPage('projects')" style="color:rgba(255,255,255,.85)">Our Projects</span></li>
+      <li><span id="nl-careers" style="color:rgba(255,255,255,.85)">Careers</span></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="nav-action" id="na-enquire" onclick="showEnquiry()" style="color:rgba(255,255,255,.8)">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Enquire
+      </button>
+      <button class="nav-action" id="na-call" style="color:rgba(255,255,255,.8)">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.19 6.19l1.9-1.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+        Call
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="page-home" class="page active">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-video-wrap">
+    <video id="hero-vid" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);object-fit:cover">
+      <source src="https://cdn.coverr.co/videos/coverr-an-aerial-view-of-a-city-at-dusk-5508/1080p.mp4" type="video/mp4"/>
+      <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-city-2239/1080p.mp4" type="video/mp4"/>
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-buildings-and-roads-46-large.mp4" type="video/mp4"/>
+    </video>
+    <!-- Fallback image shown while video loads -->
+    <img id="hero-fallback" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&auto=format&fit=crop" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1" alt="Veltora"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">India's Leading Real Estate Developer</div>
+    <h1 class="hero-title">Creating the<br><em>world's finest</em><br>developments</h1>
+    <p class="hero-desc">Veltora Group delivers thoughtfully designed, premium properties that shape the urban lifestyle of tomorrow.</p>
+    <div class="hero-btns">
+      <button class="btn-white" onclick="showPage('projects')">Explore Projects</button>
+      <button class="btn-outline-white" onclick="showEnquiry()">Request a Call</button>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- QUICK BAR -->
+<div class="quick-bar">
+  <div class="quick-bar-text">Find your <em>perfect home</em></div>
+  <div class="quick-form">
+    <input type="text" class="quick-input" placeholder="Your name"/>
+    <input type="tel" class="quick-input" placeholder="+91 phone"/>
+    <select class="quick-select"><option>Select city</option><option>Mumbai</option><option>Pune</option><option>Bangalore</option></select>
+    <button class="quick-submit">Get a Call Back</button>
+  </div>
+</div>
+
+<!-- OUR PROMISE -->
+<div class="section" style="background:#fff" id="promise">
+  <div class="promise-grid">
+    <div>
+      <div class="eyebrow">Our Promise</div>
+      <h2 class="sec-title">Creating the world's<br><em>finest developments</em></h2>
+      <p class="sec-body">Veltora is India's leading real estate developer, delivering thoughtfully designed, premium properties that shape urban lifestyle. Every project is a testament to our commitment to quality, design, and the art of living.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px">
+        <div style="border-top:1px solid var(--border);padding-top:20px"><div class="stat-num" style="font-family:var(--serif);font-size:42px;font-weight:400;color:var(--black);line-height:1">45<span style="font-size:24px;color:var(--gold2)">+</span></div><div style="font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px">Years of Legacy</div></div>
+        <div style="border-top:1px solid var(--border);padding-top:20px"><div style="font-family:var(--serif);font-size:42px;font-weight:400;color:var(--black);line-height:1">400<span style="font-size:24px;color:var(--gold2)">+</span></div><div style="font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px">Projects Delivered</div></div>
+        <div style="border-top:1px solid var(--border);padding-top:20px"><div style="font-family:var(--serif);font-size:42px;font-weight:400;color:var(--black);line-height:1">1L<span style="font-size:24px;color:var(--gold2)">+</span></div><div style="font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px">Happy Families</div></div>
+        <div style="border-top:1px solid var(--border);padding-top:20px"><div style="font-family:var(--serif);font-size:42px;font-weight:400;color:var(--black);line-height:1">12<span style="font-size:24px;color:var(--gold2)">+</span></div><div style="font-size:12px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px">Cities & Countries</div></div>
+      </div>
+      <button class="btn-dark" style="margin-top:36px">Know More</button>
+    </div>
+    <div style="position:relative;height:560px;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&auto=format&fit=crop" alt="Veltora World One" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.7s ease"/>
+      <div class="promise-caption">
+        <span style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6)">Featured Development</span>
+        <strong style="font-family:var(--serif);font-size:16px;font-weight:400;color:#fff">Veltora World One · Mumbai</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div style="font-family:var(--serif);font-size:48px;font-weight:400;color:#fff;line-height:1">45<span style="font-size:24px;color:var(--gold2)">+</span></div><div class="stat-lbl">Years of Legacy</div></div>
+  <div class="stat-item"><div style="font-family:var(--serif);font-size:48px;font-weight:400;color:#fff;line-height:1">400<span style="font-size:24px;color:var(--gold2)">+</span></div><div class="stat-lbl">Projects Delivered</div></div>
+  <div class="stat-item"><div style="font-family:var(--serif);font-size:48px;font-weight:400;color:#fff;line-height:1">1L<span style="font-size:24px;color:var(--gold2)">+</span></div><div class="stat-lbl">Happy Families</div></div>
+  <div class="stat-item"><div style="font-family:var(--serif);font-size:48px;font-weight:400;color:#fff;line-height:1">12<span style="font-size:24px;color:var(--gold2)">+</span></div><div class="stat-lbl">Cities & Countries</div></div>
+</div>
+
+<!-- OUR PURPOSE -->
+<div class="section" style="background:#fff">
+  <div style="margin-bottom:48px">
+    <div class="eyebrow">Our Purpose</div>
+    <h2 class="sec-title">Do good. <em>Do well.</em></h2>
+    <p class="sec-body">Veltora is committed to elevating the living experience while emphasising the importance of creating a positive impact on the environment and society.</p>
+  </div>
+  <div class="purpose-grid">
+    <div class="purpose-card" onclick="showPage('story')">
+      <div class="purpose-bg-img" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&auto=format&fit=crop')"></div>
+      <div class="ov"></div>
+      <div class="purpose-content">
+        <div class="purpose-sub">Who We Are</div>
+        <div class="purpose-title">Our Story</div>
+        <div class="purpose-desc">Five decades of crafting spaces that inspire, communities that thrive, and lives that flourish.</div>
+        <div class="purpose-link">Discover More →</div>
+      </div>
+    </div>
+    <div class="purpose-card" onclick="showPage('impact')">
+      <div class="purpose-bg-img" style="background-image:url('https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=900&auto=format&fit=crop')"></div>
+      <div class="ov"></div>
+      <div class="purpose-content">
+        <div class="purpose-sub">Sustainability</div>
+        <div class="purpose-title">Our Impact</div>
+        <div class="purpose-desc">Committed to net-zero, green buildings, and social initiatives that uplift communities across India.</div>
+        <div class="purpose-link">Learn More →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Luxury Residences</span><span class="marquee-item">Premium Apartments</span><span class="marquee-item">Integrated Townships</span><span class="marquee-item">Commercial Spaces</span><span class="marquee-item">Global Developments</span><span class="marquee-item">Sustainable Design</span><span class="marquee-item">Luxury Residences</span><span class="marquee-item">Premium Apartments</span><span class="marquee-item">Integrated Townships</span><span class="marquee-item">Commercial Spaces</span><span class="marquee-item">Global Developments</span><span class="marquee-item">Sustainable Design</span>
+  </div>
+</div>
+
+<!-- PROPERTY GALLERY -->
+<div class="section" style="background:var(--lighter)" id="projects-home">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div>
+      <div class="eyebrow">Our Presence</div>
+      <h2 class="sec-title">Iconic <em>Developments</em></h2>
+    </div>
+    <button class="btn-border" onclick="showPage('projects')">View All Projects</button>
+  </div>
+  <div class="tab-bar">
+    <button class="tab active" onclick="filterGallery('All',this)">All</button>
+    <button class="tab" onclick="filterGallery('Icons',this)">Icons</button>
+    <button class="tab" onclick="filterGallery('Residential',this)">Residential</button>
+    <button class="tab" onclick="filterGallery('Commercial',this)">Commercial</button>
+  </div>
+  <div class="proj-grid" id="gallery-grid">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- EXPERIENCES -->
+<div class="section" style="background:var(--lighter)">
+  <div class="eyebrow">Our Experiences</div>
+  <h2 class="sec-title">Elevating <em>everyday living</em></h2>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="exp-title">World-Class Amenities</div>
+      <div class="exp-desc">Infinity pools, sky lounges, concierge services, and wellness centres that redefine the meaning of home.</div>
+      <div class="exp-link">Explore →</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="exp-title">Timely Delivery</div>
+      <div class="exp-desc">We hold the industry record for on-time handovers. Your dream home, delivered exactly when promised.</div>
+      <div class="exp-link">Our Record →</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="exp-title">Trusted Legacy</div>
+      <div class="exp-desc">45 years. 1 lakh+ happy families. India's most trusted real estate developer, by choice and by reputation.</div>
+      <div class="exp-link">Our Legacy →</div>
+    </div>
+  </div>
+</div>
+
+<!-- ENQUIRY -->
+<div class="enq-section" id="enquiry">
+  <div class="enq-grid">
+    <div>
+      <div class="eyebrow" style="color:var(--gold2)">Get in Touch</div>
+      <div style="font-family:var(--serif);font-size:clamp(28px,3vw,46px);font-weight:400;color:#fff;line-height:1.25">Request a<br><em style="color:var(--gold2)">call back</em></div>
+      <p style="font-size:14px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.5);margin-top:16px;max-width:360px">Our expert advisors will help you find the perfect property tailored to your needs and aspirations.</p>
+    </div>
+    <form class="enq-form" onsubmit="submitEnq(event)">
+      <div class="enq-field"><label class="enq-label">Full Name</label><input type="text" class="enq-input" placeholder="Your full name"/></div>
+      <div class="enq-field"><label class="enq-label">Phone</label><input type="tel" class="enq-input" placeholder="+91 XXXXX XXXXX"/></div>
+      <div class="enq-field"><label class="enq-label">Email</label><input type="email" class="enq-input" placeholder="you@email.com"/></div>
+      <div class="enq-field"><label class="enq-label">City</label><select class="enq-sel"><option value="">Select city</option><option>Mumbai</option><option>Pune</option><option>Bangalore</option><option>Hyderabad</option></select></div>
+      <div class="enq-field" style="grid-column:1/-1"><label class="enq-label">Interested In</label><select class="enq-sel"><option value="">Select type</option><option>Luxury Residences</option><option>Premium Apartments</option><option>Villas & Plots</option><option>Commercial Offices</option></select></div>
+      <div class="enq-submit-wrap"><button type="submit" class="enq-btn" id="enq-btn">Submit Enquiry</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Veltora <span style="color:var(--gold2)">Group</span></div>
+      <p class="footer-tagline">India's leading real estate developer, shaping skylines and elevating the art of living since 1979.</p>
+    </div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="#">Our Story</a></li><li><a href="#">Our Impact</a></li><li><a href="#">Newsroom</a></li><li><a href="#">Careers</a></li><li><a href="#">Investor Relations</a></li></ul></div>
+    <div class="footer-col"><h5>Projects</h5><ul><li><a href="#">Luxury Icons</a></li><li><a href="#">Residential</a></li><li><a href="#">Commercial</a></li><li><a href="#">Integrated Cities</a></li><li><a onclick="showPage('projects')" style="cursor:pointer">View All</a></li></ul></div>
+    <div class="footer-col"><h5>Support</h5><ul><li><a href="#">Contact Us</a></li><li><a href="#">NRI Services</a></li><li><a href="#">Customer Portal</a></li><li><a href="#">Blogs</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© Veltora Group 2026. All Rights Reserved.</span>
+    <div class="footer-socials">
+      <a class="soc" href="#">f</a><a class="soc" href="#">in</a><a class="soc" href="#">tw</a><a class="soc" href="#">yt</a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end home page -->
+
+<!-- ═══════════════════ PROJECTS PAGE ═══════════════════ -->
+<div id="page-projects" class="page">
+  <div class="proj-page-hero">
+    <div style="position:relative;z-index:1">
+      <div class="eyebrow" style="color:var(--gold2)">Our Presence</div>
+      <h1 style="font-family:var(--serif);font-size:clamp(40px,5vw,72px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:20px">All <em>Projects</em></h1>
+      <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,.55);max-width:500px;line-height:1.8">From Mumbai to London — discover every Veltora development crafted with purpose, precision and passion.</p>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <div class="tab-bar" style="border:none;margin:0">
+      <button class="tab active" onclick="filterList('All',this)">All</button>
+      <button class="tab" onclick="filterList('Icons',this)">Icons</button>
+      <button class="tab" onclick="filterList('Residential',this)">Residential</button>
+      <button class="tab" onclick="filterList('Commercial',this)">Commercial</button>
+    </div>
+    <div>
+      <select class="filter-sel" onchange="filterCity(this.value)" id="city-filter"><option>All Cities</option><option>Mumbai</option><option>London</option><option>Pune</option></select>
+      <select class="filter-sel" onchange="filterBhk(this.value)" id="bhk-filter"><option>All BHK</option><option>2 Beds</option><option>3 Beds</option><option>4 Beds</option><option>5+ Beds</option></select>
+    </div>
+  </div>
+  <div style="padding:32px 80px 0"><span id="results-count" style="font-size:13px;color:var(--muted)"></span></div>
+  <div class="proj-list" id="projects-list"></div>
+  <footer style="background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:72px 80px 40px">
+    <div class="footer-bottom" style="border:none;padding:0">
+      <div onclick="showPage('home')" style="font-family:var(--serif);font-size:20px;color:#fff;cursor:pointer">← Back to Veltora <span style="color:var(--gold2)">Group</span></div>
+      <span style="font-size:12px;font-weight:300;color:rgba(255,255,255,.3)">© Veltora Group 2026. All Rights Reserved.</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════ DETAIL PAGE ═══════════════════ -->
+<div id="page-detail" class="page">
+  <div class="detail-hero" id="detail-hero">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);z-index:1"></div>
+    <div style="position:relative;z-index:2;padding:0 80px 60px">
+      <div class="breadcrumb">
+        <span onclick="showPage('home')">Home</span>
+        <span class="sep">›</span>
+        <span onclick="showPage('projects')">Projects</span>
+        <span class="sep">›</span>
+        <span id="detail-breadcrumb" style="color:rgba(255,255,255,.7);cursor:default"></span>
+      </div>
+      <div id="detail-city" style="font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px"></div>
+      <h1 id="detail-name" style="font-family:var(--serif);font-size:clamp(38px,5vw,68px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:16px"></h1>
+      <div id="detail-badges" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap"></div>
+    </div>
+  </div>
+  <div class="detail-content">
+    <div class="detail-left">
+      <div class="key-facts" id="detail-facts"></div>
+      <div style="margin-bottom:64px">
+        <div class="eyebrow">About this Project</div>
+        <p id="detail-desc" style="font-size:16px;font-weight:300;line-height:1.9;color:var(--text);max-width:620px"></p>
+      </div>
+      <div>
+        <div class="eyebrow">Key Amenities</div>
+        <div class="amenities-grid" id="detail-amenities"></div>
+      </div>
+    </div>
+    <div class="detail-right">
+      <div class="sticky-form">
+        <div style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--black);margin-bottom:8px">Enquire Now</div>
+        <p style="font-size:13px;font-weight:300;color:var(--muted);margin-bottom:28px;line-height:1.7">Get in touch with our sales team for pricing, availability and a personalised site visit.</p>
+        <form onsubmit="submitDetail(event)">
+          <div style="margin-bottom:20px"><label style="display:block;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Full Name</label><input type="text" placeholder="Your name" style="width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:10px 0;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--black);outline:none"/></div>
+          <div style="margin-bottom:20px"><label style="display:block;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" style="width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:10px 0;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--black);outline:none"/></div>
+          <div style="margin-bottom:20px"><label style="display:block;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Email Address</label><input type="email" placeholder="you@email.com" style="width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:10px 0;font-family:var(--sans);font-size:14px;font-weight:300;color:var(--black);outline:none"/></div>
+          <button type="submit" id="detail-enq-btn" style="width:100%;padding:16px;background:var(--black);border:none;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff;cursor:pointer;margin-top:8px;font-family:var(--sans);transition:background .25s">Request a Call Back</button>
+        </form>
+        <div style="margin-top:28px;padding-top:28px;border-top:1px solid var(--border);text-align:center">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Or call us directly</div>
+          <div style="font-family:var(--serif);font-size:20px;font-weight:400;color:var(--black)">+91 800 000 1234</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="similar-section">
+    <div class="eyebrow">Similar Developments</div>
+    <div class="similar-grid" id="similar-grid"></div>
+  </div>
+  <footer style="background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:40px 80px">
+    <div class="footer-bottom" style="border:none;padding:0">
+      <div onclick="showPage('projects')" style="font-family:var(--serif);font-size:20px;color:#fff;cursor:pointer">← All Projects</div>
+      <span style="font-size:12px;font-weight:300;color:rgba(255,255,255,.3)">© Veltora Group 2026</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════ OUR STORY PAGE ═══════════════════ -->
+<div id="page-story" class="page">
+
+  <!-- HERO -->
+  <div style="position:relative;height:70vh;min-height:500px;overflow:hidden;display:flex;align-items:flex-end">
+    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&auto=format&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="Our Story"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.1) 100%)"></div>
+    <div style="position:relative;z-index:1;padding:0 80px 72px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#C4A06A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#C4A06A;display:block"></span>About Veltora</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,78px);font-weight:400;color:#fff;line-height:1.08;margin-bottom:20px">Shaping Indian<br><em>real estate</em></h1>
+      <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,.75);max-width:540px;line-height:1.8;font-family:'DM Sans',sans-serif">As creators of the world's finest developments, Veltora leverages four decades of experience to transform the way people live and work.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div style="padding:100px 80px;background:#fff">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Our Story</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:20px">Raising expectations<br><em>for real estate</em></h2>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif;margin-bottom:20px">Founded in 1979 with a single vision — to create the finest spaces that India has ever seen — Veltora Group has grown from a regional developer into a global real estate powerhouse with projects across Mumbai, Pune, Bengaluru, Hyderabad and London.</p>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">We combine four decades of experience with the expertise to deliver both quality and scale at a pace that is unmatched in the industry. Every development carries our signature commitment to design excellence, enduring quality, and the art of living well.</p>
+      </div>
+      <div style="height:520px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block" alt="Veltora Legacy"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTERS -->
+  <div style="background:#FAFAF7;padding:100px 80px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Our Journey</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:80px">A legacy built<br><em>chapter by chapter</em></h2>
+
+    <!-- Chapter 1 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E2DDD5">
+      <div style="padding:64px 64px 64px 0;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:400;color:rgba(168,133,74,.15);line-height:1;margin-bottom:4px">1979</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#1A1A18;margin-bottom:16px;line-height:1.3">A Legacy of Excellence</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">Veltora Group was founded with a pioneering spirit and a singular goal — to redefine how India lives. Our first project in South Mumbai set a new benchmark for quality and design that would become our hallmark for decades to come.</p>
+      </div>
+      <div style="height:400px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" alt="1979"/>
+      </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E2DDD5">
+      <div style="height:400px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" alt="1995"/>
+      </div>
+      <div style="padding:64px 0 64px 64px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:400;color:rgba(168,133,74,.15);line-height:1;margin-bottom:4px">1995</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#1A1A18;margin-bottom:16px;line-height:1.3">Crafting Timeless Elegance</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">We hold an unwavering belief that quality is not just a destination, but an ongoing voyage. Each residence is meticulously crafted with the same attention to detail as if it were our very own — innovative technologies, hand-selected materials, and master craftsmen define every Veltora home.</p>
+      </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E2DDD5">
+      <div style="padding:64px 64px 64px 0;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:400;color:rgba(168,133,74,.15);line-height:1;margin-bottom:4px">2010</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#1A1A18;margin-bottom:16px;line-height:1.3">Sophistication on a Grand Scale</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">Veltora expanded beyond residences to craft landmark commercial developments and integrated townships. From ultra-luxury towers to 100,000-home cities — we deliver quality at every scale across geographies.</p>
+      </div>
+      <div style="height:400px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" alt="2010"/>
+      </div>
+    </div>
+
+    <!-- Chapter 4 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #E2DDD5">
+      <div style="height:400px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=800&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" alt="2020"/>
+      </div>
+      <div style="padding:64px 0 64px 64px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-family:'Playfair Display',serif;font-size:56px;font-weight:400;color:rgba(168,133,74,.15);line-height:1;margin-bottom:4px">2020</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#1A1A18;margin-bottom:16px;line-height:1.3">Building a Sustainable Legacy</h3>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">Our commitment extends beyond luxury. We are dedicated to leaving a lasting, positive impact on the environment and society through green design, net-zero targets, and community initiatives that stand resilient against future challenges.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY FACTS -->
+  <div style="background:#1A1A18;padding:80px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#C4A06A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#C4A06A;display:block"></span>Key Facts</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,44px);font-weight:400;color:#fff;margin-bottom:64px">Delivering excellence<br><em style="color:#C4A06A">with continued growth</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+      <div style="padding:40px 40px 40px 0">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">110M<span style="font-size:28px">+</span></div>
+        <div style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px;font-family:'DM Sans',sans-serif">Sq. ft. delivered</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">45<span style="font-size:28px">+</span></div>
+        <div style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px;font-family:'DM Sans',sans-serif">Years of legacy</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">40</div>
+        <div style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px;font-family:'DM Sans',sans-serif">Ongoing projects</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">95M</div>
+        <div style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:10px;font-family:'DM Sans',sans-serif">Sq. ft. in pipeline</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)">
+      <div style="font-size:13px;color:rgba(255,255,255,.3);font-family:'DM Sans',sans-serif">Presence in Mumbai · Thane · Pune · Bengaluru · Hyderabad · London</div>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div style="padding:100px 80px;background:#fff">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Who We Are</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:64px">Guided by<br><em>visionary leadership</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Rajesh Veltora"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Rajesh Veltora</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Chairman &amp; Founder</div>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Ananya Mehta"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Ananya Mehta</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Managing Director</div>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Vikram Shah"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Vikram Shah</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">CEO – Residential</div>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Priya Nair"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Priya Nair</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Chief Financial Officer</div>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Arjun Kapoor"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Arjun Kapoor</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">CEO – Commercial</div>
+        </div>
+      </div>
+
+      <div style="position:relative;overflow:hidden;cursor:pointer" onmouseover="this.querySelector('img').style.transform='scale(1.06)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop" style="width:100%;height:360px;object-fit:cover;display:block;transition:transform .6s" alt="Sunita Rao"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%)"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px">
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:4px">Sunita Rao</div>
+          <div style="font-size:11px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Head of Design</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AWARDS -->
+  <div style="background:#FAFAF7;padding:80px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Recognition</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,48px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:48px">Featured <em>awards</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px">
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">World's Most Trustworthy Companies List 2025 — Newsweek</span></div>
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">Iconic Brands of India 2025 — ET Now</span></div>
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">Featured in the S&amp;P Global Sustainability Yearbook 2025</span></div>
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">India's Top Builders 2024 — Architect &amp; Builder Award</span></div>
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">Great Place to Work 2025</span></div>
+      <div style="background:#fff;padding:28px 32px;border:1px solid #E2DDD5;display:flex;align-items:center;gap:16px"><span style="width:8px;height:8px;border-radius:50%;background:#A8854A;flex-shrink:0"></span><span style="font-size:14px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif">Best Luxury Developer — CNBC Awaaz Real Estate Awards</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:#1A1A18;border-top:1px solid rgba(255,255,255,.06);padding:40px 80px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div onclick="showPage('home')" style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;cursor:pointer">← Back to Home</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:#fff">Veltora <span style="color:#C4A06A">Group</span></div>
+      <span style="font-size:12px;color:rgba(255,255,255,.3);font-family:'DM Sans',sans-serif">© Veltora Group 2026</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════ OUR IMPACT PAGE ═══════════════════ -->
+<div id="page-impact" class="page">
+
+  <!-- HERO -->
+  <div style="position:relative;height:70vh;min-height:500px;overflow:hidden;display:flex;align-items:flex-end">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&auto=format&fit=crop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="Our Impact"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.3) 60%,rgba(0,0,0,.1) 100%)"></div>
+    <div style="position:relative;z-index:1;padding:0 80px 72px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#C4A06A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#C4A06A;display:block"></span>ESG &amp; Sustainability</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,78px);font-weight:400;color:#fff;line-height:1.08;margin-bottom:20px">Do good.<br><em>Do well.</em></h1>
+      <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,.75);max-width:560px;line-height:1.8;font-family:'DM Sans',sans-serif">Veltora is committed to elevating the living experience while emphasising the importance of creating a positive impact on the environment and society.</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div style="padding:100px 80px;background:#fff">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div>
+        <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Our Commitment</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:20px">Building a<br><em>sustainable future</em></h2>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif;margin-bottom:20px">At Veltora, sustainability is not an afterthought — it is woven into every decision we make, from the land we acquire to the homes we hand over. We believe that the finest developments must also be the most responsible.</p>
+        <p style="font-size:15px;font-weight:300;line-height:1.9;color:#888882;font-family:'DM Sans',sans-serif">Our ESG strategy is built on three pillars — Environmental stewardship, Social responsibility, and Governance excellence — forming our promise to the planet, our people, and our partners.</p>
+      </div>
+      <div style="height:520px;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block" alt="Sustainability"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE PILLARS -->
+  <div style="background:#FAFAF7;padding:100px 80px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>ESG Framework</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:64px">Three pillars of<br><em>our commitment</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px">
+
+      <!-- Environmental -->
+      <div style="background:#fff;overflow:hidden;border:1px solid #E2DDD5">
+        <div style="height:260px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" alt="Environmental"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
+          <div style="position:absolute;bottom:20px;left:24px">
+            <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Environmental</div>
+            <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#fff">Net Zero by 2035</div>
+          </div>
+        </div>
+        <div style="padding:28px">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>100% renewable energy across all new projects</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Green building certifications on every development</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>30% reduction in construction waste</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Water recycling systems in all townships</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>1 lakh trees planted annually</div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div style="background:#fff;overflow:hidden;border:1px solid #E2DDD5">
+        <div style="height:260px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=700&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" alt="Social"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
+          <div style="position:absolute;bottom:20px;left:24px">
+            <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Social</div>
+            <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#fff">Communities That Thrive</div>
+          </div>
+        </div>
+        <div style="padding:28px">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>50,000+ construction workers trained annually</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Free education for 10,000+ children near our sites</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Healthcare centres in all integrated townships</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Women empowerment programmes at Palava City</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>5,000 affordable homes delivered</div>
+        </div>
+      </div>
+
+      <!-- Governance -->
+      <div style="background:#fff;overflow:hidden;border:1px solid #E2DDD5">
+        <div style="height:260px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&auto=format&fit=crop" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'" alt="Governance"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
+          <div style="position:absolute;bottom:20px;left:24px">
+            <div style="font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C4A06A;font-family:'DM Sans',sans-serif">Governance</div>
+            <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#fff">Transparency &amp; Trust</div>
+          </div>
+        </div>
+        <div style="padding:28px">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Listed on NSE &amp; BSE with full public disclosure</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Independent board with 60% non-executive directors</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Zero tolerance anti-corruption policy</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #E2DDD5;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>Annual sustainability report published since 2018</div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:13px;font-weight:300;color:#3C3C38;line-height:1.6;font-family:'DM Sans',sans-serif"><span style="width:6px;height:6px;border-radius:50%;background:#A8854A;flex-shrink:0;margin-top:6px"></span>ISO 9001 &amp; ISO 14001 certified operations</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IMPACT NUMBERS -->
+  <div style="background:#1A1A18;padding:80px">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#C4A06A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#C4A06A;display:block"></span>Impact in Numbers</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,44px);font-weight:400;color:#fff;margin-bottom:64px">Our footprint<br><em style="color:#C4A06A">on the world</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+      <div style="padding:40px 40px 40px 0">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">62%</div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.6;font-family:'DM Sans',sans-serif">Reduction in carbon per sq.ft since 2018</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">1L<span style="font-size:28px">+</span></div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.6;font-family:'DM Sans',sans-serif">Trees planted across all developments</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">50K<span style="font-size:28px">+</span></div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.6;font-family:'DM Sans',sans-serif">Workers trained in safety &amp; skills</div>
+      </div>
+      <div style="padding:40px;border-left:1px solid rgba(255,255,255,.08)">
+        <div style="font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#C4A06A;line-height:1">₹200Cr</div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.6;font-family:'DM Sans',sans-serif">Invested in CSR initiatives</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div style="padding:80px;background:#fff">
+    <div style="font-size:10px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#A8854A;margin-bottom:14px;display:flex;align-items:center;gap:14px;font-family:'DM Sans',sans-serif"><span style="width:28px;height:1px;background:#A8854A;display:block"></span>Recognition</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,48px);font-weight:400;line-height:1.2;color:#1A1A18;margin-bottom:48px">Certifications &amp;<br><em>awards</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">🏆</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">LEED Platinum</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">All new commercial developments are LEED Platinum certified — the highest standard of green building worldwide.</p>
+      </div>
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">📊</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">S&amp;P Sustainability Yearbook</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">Featured in the S&amp;P Global Sustainability Yearbook 2025, placing us among the top 15% globally for ESG performance.</p>
+      </div>
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">🌱</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">IGBC Green Homes</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">Over 80% of our residential projects carry IGBC Green Homes ratings for energy and water efficiency.</p>
+      </div>
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">✅</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">ISO 14001</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">All our construction operations are ISO 14001 certified for Environmental Management Systems.</p>
+      </div>
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">👥</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">Great Place to Work</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">Certified as a Great Place to Work 2025, reflecting our commitment to our 10,000+ employees across India.</p>
+      </div>
+      <div style="border:1px solid #E2DDD5;padding:32px;background:#FAFAF7">
+        <div style="font-size:32px;margin-bottom:16px">🌍</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#1A1A18;margin-bottom:12px">CDP Climate Score</div>
+        <p style="font-size:13px;font-weight:300;line-height:1.8;color:#888882;font-family:'DM Sans',sans-serif">Awarded a B rating by CDP for climate transparency and action — above the India average for the sector.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:#1A1A18;border-top:1px solid rgba(255,255,255,.06);padding:40px 80px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div onclick="showPage('home')" style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;cursor:pointer">← Back to Home</div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:#fff">Veltora <span style="color:#C4A06A">Group</span></div>
+      <span style="font-size:12px;color:rgba(255,255,255,.3);font-family:'DM Sans',sans-serif">© Veltora Group 2026</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ── DATA ──
+const projects = [
+  { id:"world-towers", name:"Veltora World Towers", city:"Worli, Mumbai", tag:"Ultra Luxury · 68 Floors", type:"Icons", bhk:["3 Beds","4 Beds","5+ Beds"], price:"₹12 Cr onwards", status:"Ready to Move", area:"3200 – 8500 sq.ft", description:"Soaring 68 floors above Worli, Veltora World Towers redefines ultra-luxury living. Every residence commands panoramic views of the Arabian Sea and the Mumbai skyline, paired with world-class amenities and impeccable finishes.", amenities:["Infinity Pool","Sky Lounge","Concierge","Spa & Wellness","Home Theatre","Private Terrace"], img:"https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&auto=format&fit=crop" },
+  { id:"grosvenor-square", name:"No.1 Grosvenor Square", city:"Mayfair, London", tag:"Prime Residences", type:"Icons", bhk:["4 Beds","5+ Beds"], price:"£8M onwards", status:"Under Construction", area:"4000 – 12000 sq.ft", description:"India's most prestigious address — now in London. No. 1 Grosvenor Square brings Indian craftsmanship and global luxury to the heart of Mayfair, one of the world's most coveted postcodes.", amenities:["Private Cinema","Wine Cellar","Residents' Club","24/7 Concierge","Landscaped Gardens"], img:"https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&auto=format&fit=crop" },
+  { id:"one-veltora-place", name:"One Veltora Place", city:"BKC, Mumbai", tag:"Grade A Commercial", type:"Commercial", bhk:[], price:"₹18,000/sq.ft onwards", status:"Ready to Move", area:"500 – 50,000 sq.ft", description:"Mumbai's most prestigious commercial address in the heart of BKC. One Veltora Place offers Grade A offices with cutting-edge infrastructure, LEED Platinum certification, and unmatched connectivity.", amenities:["LEED Platinum","Smart Building","Food Court","EV Charging","Concierge Lobby"], img:"https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop" },
+  { id:"altamount", name:"Veltora Altamount", city:"Altamount Road, Mumbai", tag:"Super Luxury", type:"Icons", bhk:["4 Beds","5+ Beds"], price:"₹25 Cr onwards", status:"Under Construction", area:"5000 – 14000 sq.ft", description:"On Mumbai's most prestigious road, Veltora Altamount is an address that speaks before you do. Limited residences. Unlimited luxury. A home for those who have arrived.", amenities:["Private Lift Lobby","Sky Pool","Cigar Lounge","Butler Service","Smart Home"], img:"https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=900&auto=format&fit=crop" },
+  { id:"palava", name:"Veltora Palava", city:"Palava City, Dombivali", tag:"Integrated Township", type:"Residential", bhk:["1 Bed","2 Beds","3 Beds"], price:"₹55 L onwards", status:"Ready to Move", area:"650 – 1800 sq.ft", description:"India's most awarded smart city. Palava is home to 1 lakh+ families, 30+ schools, hospitals, malls, and everything you need — all within a walkable, green, planned township.", amenities:["Schools","Hospitals","Malls","Parks","Sports Complex","Metro Connectivity"], img:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&auto=format&fit=crop" },
+  { id:"bellevue", name:"Veltora Bellevue", city:"Mahalaxmi, Mumbai", tag:"Premium Residences", type:"Residential", bhk:["2 Beds","3 Beds","4 Beds"], price:"₹4.5 Cr onwards", status:"Under Construction", area:"1200 – 3200 sq.ft", description:"Nestled in the lush green pocket of Mahalaxmi, Veltora Bellevue offers a rare combination of serene living and city connectivity — with the racecourse as your backyard.", amenities:["Rooftop Pool","Clubhouse","Yoga Deck","Kids Zone","Gymnasium"], img:"https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=900&auto=format&fit=crop" },
+];
+
+const silhouettes = [
+  "polygon(5% 100%,5% 30%,12% 28%,12% 10%,20% 8%,20% 5%,30% 4%,30% 8%,38% 6%,38% 20%,48% 18%,48% 35%,55% 33%,55% 25%,62% 22%,62% 30%,70% 28%,70% 40%,80% 38%,80% 50%,95% 48%,95% 100%)",
+  "polygon(0 100%,0 40%,20% 38%,20% 20%,35% 18%,35% 10%,50% 8%,50% 18%,65% 15%,65% 35%,80% 32%,80% 45%,100% 43%,100% 100%)",
+  "polygon(0 100%,0 50%,15% 48%,15% 30%,35% 28%,35% 15%,50% 12%,50% 28%,70% 25%,70% 40%,85% 38%,85% 52%,100% 50%,100% 100%)",
+  "polygon(0 100%,0 55%,20% 52%,20% 35%,40% 32%,40% 20%,55% 18%,55% 32%,75% 28%,75% 45%,100% 42%,100% 100%)",
+  "polygon(0 100%,0 45%,18% 43%,18% 25%,32% 22%,32% 12%,48% 10%,48% 22%,62% 20%,62% 35%,78% 32%,78% 48%,100% 46%,100% 100%)",
+];
+
+// ── STATE ──
+let currentTab = "All", currentCity = "All Cities", currentBhk = "All BHK";
+
+// ── ROUTING ──
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  window.scrollTo(0, 0);
+  updateNav(page);
+}
+
+function updateNav(page) {
+  const nav = document.getElementById('navbar');
+  const isTransparentStart = ['home','story','impact'].includes(page);
+  const links = ['nl-story','nl-impact','nl-projects','nl-careers'];
+  const actions = ['na-enquire','na-call'];
+
+  if (isTransparentStart) {
+    nav.style.background = 'transparent';
+    nav.style.boxShadow = 'none';
+    nav.classList.remove('scrolled');
+    links.forEach(id => { const el=document.getElementById(id); if(el) el.style.color='rgba(255,255,255,.85)'; });
+    actions.forEach(id => { const el=document.getElementById(id); if(el) el.style.color='rgba(255,255,255,.8)'; });
+    document.querySelector('.nav-logo').style.color = '#fff';
+  } else {
+    nav.classList.add('scrolled');
+    links.forEach(id => { const el=document.getElementById(id); if(el) el.style.color='#2E2E2A'; });
+    actions.forEach(id => { const el=document.getElementById(id); if(el) el.style.color='#2E2E2A'; });
+    document.querySelector('.nav-logo').style.color = '#1A1A18';
+  }
+
+  // Highlight active page in nav
+  const map = {story:'nl-story', impact:'nl-impact', projects:'nl-projects'};
+  links.forEach(id => { const el=document.getElementById(id); if(el) el.style.fontWeight='400'; });
+  if(map[page]) {
+    const el = document.getElementById(map[page]);
+    if(el) { el.style.fontWeight='500'; el.style.color = isTransparentStart ? '#fff' : '#A8854A'; }
+  }
+}
+
+function showDetail(id) {
+  const proj = projects.find(p => p.id === id);
+  if (!proj) return;
+
+  document.getElementById('detail-hero').style.background = `url('${proj.img}') center/cover no-repeat`;
+  document.getElementById('detail-breadcrumb').textContent = proj.name;
+  document.getElementById('detail-city').textContent = proj.city;
+  document.getElementById('detail-name').textContent = proj.name;
+  document.getElementById('detail-desc').textContent = proj.description;
+
+  document.getElementById('detail-badges').innerHTML = `
+    <span style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);font-family:var(--sans)">${proj.tag}</span>
+    <span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);display:block"></span>
+    <span style="font-size:12px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:${proj.status==='Ready to Move'?'#8fcf8f':'var(--gold2)'};font-family:var(--sans)">${proj.status}</span>
+  `;
+
+  document.getElementById('detail-facts').innerHTML = [
+    {label:'Starting Price',val:proj.price},
+    {label:'Area',val:proj.area},
+    {label:'Configuration',val:proj.bhk.length>0?proj.bhk.join(', '):'Commercial'},
+  ].map((f,i)=>`<div class="key-fact" style="${i>0?'border-left:1px solid var(--border)':''}"><div style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-family:var(--sans)">${f.label}</div><div style="font-family:var(--serif);font-size:20px;font-weight:400;color:var(--black)">${f.val}</div></div>`).join('');
+
+  document.getElementById('detail-amenities').innerHTML = proj.amenities.map(a=>`<div class="amenity"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0"></span><span style="font-size:13px;font-weight:400;color:var(--text);font-family:var(--sans)">${a}</span></div>`).join('');
+
+  const similar = projects.filter(p=>p.id!==id&&p.type===proj.type).slice(0,3);
+  document.getElementById('similar-grid').innerHTML = similar.map(p=>`
+    <div class="similar-card" onclick="showDetail('${p.id}')">
+      <div class="similar-img" style="background:url('${p.img}') center/cover no-repeat">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
+        <div style="position:absolute;bottom:16px;left:16px">
+          <div style="font-size:10px;color:var(--gold2);letter-spacing:.2em;text-transform:uppercase;font-family:var(--sans)">${p.city}</div>
+          <div style="font-family:var(--serif);font-size:18px;color:#fff">${p.name}</div>
+        </div>
+      </div>
+      <div style="padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:13px;font-family:var(--sans);color:var(--muted)">${p.tag}</span>
+        <span style="font-size:13px;font-family:var(--serif);color:var(--gold)">${p.price}</span>
+      </div>
+    </div>
+  `).join('');
+
+  showPage('detail');
+}
+
+// ── GALLERY (HOME) ──
+function renderGallery(filter) {
+  const data = filter === 'All' ? projects : projects.filter(p=>p.type===filter);
+  const display = data.slice(0,5);
+  const grid = document.getElementById('gallery-grid');
+  grid.innerHTML = display.map((p,i)=>`
+    <div class="proj-card" onclick="showDetail('${p.id}')" style="${i===0?'grid-row:1/3':''}">
+      <div class="proj-bg" style="background:url('${p.img}') center/cover no-repeat"></div>
+      <div class="proj-sil" style="clip-path:${silhouettes[i%silhouettes.length]}"></div>
+      <div class="proj-ov">
+        <div class="proj-city">${p.city}</div>
+        <div class="proj-name" style="font-size:${i===0?34:22}px">${p.name}</div>
+        <div class="proj-tag">${p.tag}</div>
+      </div>
+      <div class="proj-arrow">→</div>
+    </div>
+  `).join('');
+}
+
+function filterGallery(type, btn) {
+  document.querySelectorAll('#projects-home .tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGallery(type);
+}
+
+// ── PROJECTS LIST ──
+function renderList() {
+  const data = projects.filter(p=>{
+    const t = currentTab==='All'||p.type===currentTab;
+    const c = currentCity==='All Cities'||p.city.includes(currentCity.replace('All Cities',''));
+    const b = currentBhk==='All BHK'||p.bhk.includes(currentBhk);
+    return t&&c&&b;
+  });
+  document.getElementById('results-count').innerHTML = `Showing <strong style="color:var(--black)">${data.length}</strong> development${data.length!==1?'s':''}`;
+  document.getElementById('projects-list').innerHTML = data.map(p=>`
+    <div class="proj-list-card" onclick="showDetail('${p.id}')">
+      <div class="proj-list-img">
+        <div class="proj-list-img-bg" style="background:url('${p.img}') center/cover no-repeat"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
+        <div class="proj-status" style="color:${p.status==='Ready to Move'?'#8fcf8f':'var(--gold2)'}"><span>${p.status}</span></div>
+        <div style="position:absolute;bottom:16px;left:16px;right:16px">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:4px;font-family:var(--sans)">${p.city}</div>
+          <div style="font-family:var(--serif);font-size:22px;font-weight:400;color:#fff;line-height:1.2">${p.name}</div>
+        </div>
+      </div>
+      <div class="proj-list-body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+          <div>
+            <div style="font-size:11px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);margin-bottom:4px">${p.tag}</div>
+            <div style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--gold)">${p.price}</div>
+          </div>
+          <span style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--lighter);border:1px solid var(--border);padding:4px 10px;font-family:var(--sans)">${p.type}</span>
+        </div>
+        <div style="font-size:13px;font-weight:300;line-height:1.75;color:var(--muted);font-family:var(--sans);margin-bottom:16px">${p.description.substring(0,100)}...</div>
+        ${p.bhk.length>0?`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">${p.bhk.map(b=>`<span style="font-size:11px;font-weight:400;letter-spacing:.1em;color:var(--text);border:1px solid var(--border);padding:4px 12px;font-family:var(--sans)">${b}</span>`).join('')}</div>`:''}
+        <button style="width:100%;padding:12px;background:var(--black);border:none;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff;cursor:pointer;font-family:var(--sans)">View Details →</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterList(type, btn) {
+  currentTab = type;
+  document.querySelectorAll('#page-projects .tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderList();
+}
+function filterCity(v) { currentCity = v; renderList(); }
+function filterBhk(v) { currentBhk = v; renderList(); }
+
+// ── UTIL ──
+function showEnquiry() { showPage('home'); setTimeout(()=>document.getElementById('enquiry').scrollIntoView({behavior:'smooth'}),100); }
+
+function submitEnq(e) {
+  e.preventDefault();
+  const btn = document.getElementById('enq-btn');
+  btn.textContent = '✓ Enquiry Submitted!';
+  btn.style.background = '#6a7a5a';
+  setTimeout(()=>{ btn.textContent='Submit Enquiry'; btn.style.background='var(--gold)'; }, 3000);
+}
+
+function submitDetail(e) {
+  e.preventDefault();
+  const btn = document.getElementById('detail-enq-btn');
+  btn.textContent = "✓ Sent! We'll call you soon";
+  btn.style.background = '#6a7a5a';
+  setTimeout(()=>{ btn.textContent="Request a Call Back"; btn.style.background='var(--black)'; }, 3000);
+}
+
+// Navbar scroll — home, story, impact pages all start transparent
+window.addEventListener('scroll', ()=>{
+  const activePage = document.querySelector('.page.active');
+  if (!activePage) return;
+  const pid = activePage.id;
+  if (!['page-home','page-story','page-impact'].includes(pid)) return;
+  const nav = document.getElementById('navbar');
+  const scrolled = window.scrollY > 80;
+  nav.classList.toggle('scrolled', scrolled);
+  const textColor = scrolled ? '#2E2E2A' : 'rgba(255,255,255,.85)';
+  const actionColor = scrolled ? '#2E2E2A' : 'rgba(255,255,255,.8)';
+  document.querySelectorAll('.nav-links span').forEach(l => l.style.color = textColor);
+  document.querySelectorAll('.nav-action').forEach(l => l.style.color = actionColor);
+  document.querySelector('.nav-logo').style.color = scrolled ? '#1A1A18' : '#fff';
+});
+
+// Init
+renderGallery('All');
+renderList();
+</script>
+</body>
+</html>
